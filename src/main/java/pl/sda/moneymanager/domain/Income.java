@@ -15,5 +15,5 @@ public class Income {
     private LocalDateTime updateTimestamp;
     private Person person;
     private IncomeSource incomeSource;
-
 }
+
