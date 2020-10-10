@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import pl.sda.moneymanager.domain.Income;
 import pl.sda.moneymanager.respository.IncomeRepository;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -29,5 +31,40 @@ public class IncomeService {
 
         log.info("result from db: {}", result);
         return result;
+    }
+
+    public List<Income> readAllIncomes () {
+        log.info("reading all incomes");
+
+        var result = incomeRepository.findAll();
+        log.info("number of read elelents [{}]", result.size());
+        log.info("result : {}", result);
+        return result;
+    }
+
+    public Optional<Income> findIncomeById(Long id) {
+        log.info("find income by id: [{}],", id);
+
+        var result = incomeRepository.findById(id);
+        log.info("result [{}]", result);
+        return result;
+    }
+
+    public Income createIncome(Income toSave) {
+        var saved = incomeRepository.save(toSave);
+        log.info("saved object: [{}]", saved);
+        return saved;
+    }
+
+    public boolean deleteIncomeById(Long id){
+        log.info("deleting by id: [{}]", id);
+        incomeRepository.deleteById(id);
+        return true;
+    }
+
+    public Income updateIncome (Income toUpdate){
+        var updated = incomeRepository.save(toUpdate);
+        log.info("updated object: [{}]", updated);
+        return updated;
     }
 }
