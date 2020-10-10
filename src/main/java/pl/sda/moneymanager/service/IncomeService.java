@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import pl.sda.moneymanager.domain.Income;
 import pl.sda.moneymanager.respository.IncomeRepository;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
