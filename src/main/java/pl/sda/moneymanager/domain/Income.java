@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-public class Income {
 
+public class Income {
     private long id;
     private long incomeValueInPolishCent;
     private LocalDateTime creationTimestamp;
