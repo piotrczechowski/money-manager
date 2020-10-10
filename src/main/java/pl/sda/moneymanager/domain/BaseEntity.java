@@ -5,12 +5,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(callSuper = true)
+import java.time.LocalDateTime;
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class IncomeSource extends BaseEntity{
-    private String sourceName;
-
+public class BaseEntity {
+    private long id;
+    private LocalDateTime creationTimestamp;
+    private LocalDateTime updateTimestamp;
 }

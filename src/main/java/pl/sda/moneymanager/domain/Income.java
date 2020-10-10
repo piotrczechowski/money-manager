@@ -2,17 +2,20 @@ package pl.sda.moneymanager.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 
-public class Income {
-    private long id;
+
+public class Income extends BaseEntity {
+
     private long incomeValueInPolishCent;
-    private LocalDateTime creationTimestamp;
-    private LocalDateTime updateTimestamp;
     private Person person;
     private IncomeSource incomeSource;
 }
