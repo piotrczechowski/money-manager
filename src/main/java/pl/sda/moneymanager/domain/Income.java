@@ -1,18 +1,19 @@
 package pl.sda.moneymanager.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Income extends BaseEntity {
     private long incomeValueInCent;
@@ -20,6 +21,6 @@ public class Income extends BaseEntity {
     @ManyToOne
     private Person person;
 
-    @OneToOne
+    @ManyToOne
     private IncomeSource incomeSource;
 }
