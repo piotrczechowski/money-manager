@@ -1,22 +1,23 @@
 package pl.sda.moneymanager.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
-
+@AllArgsConstructor
+@Entity
+@Builder
 public class Income extends BaseEntity {
+    private long incomeValueInCent;
 
-    private long incomeValueInPolishCent;
+    @OneToOne
     private Person person;
+
+    @ManyToOne
     private IncomeSource incomeSource;
 }
-

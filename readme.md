@@ -1,10 +1,5 @@
 ###### TODO
 #### Pobożne życzenia
-* możliwość pracy wielu użytkowników równocześnie
-    * role/uprawnienia - zakresy widoczności
-    * dodanie nowego użytkownika/rejestracja (nowe konto)
-    * usunięcie konta
-    * modyfikacja konta
 * cechy wydatku
     * wartość
     * obsługa waluty
@@ -14,7 +9,13 @@
     * owner
     * notatka o wydatku
     * możliwość przechowywania paragonów/faktur
+* możliwość pracy wielu użytkowników równocześnie
+    * role/uprawnienia - zakresy widoczności
+    * dodanie nowego użytkownika/rejestracja (nowe konto)
+    * usunięcie konta
+    * modyfikacja konta
 * rejestracja dochodów
+    * crud
 * powiadomienia o zdarzeniach
     * cykliczne
         * podsumowanie wydaktów - raport
