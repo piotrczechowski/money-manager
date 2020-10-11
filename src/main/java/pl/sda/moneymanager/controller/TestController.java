@@ -3,7 +3,6 @@ package pl.sda.moneymanager.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.moneymanager.domain.Income;
-import pl.sda.moneymanager.domain.IncomeSource;
 import pl.sda.moneymanager.service.IncomeService;
 
 @RestController
