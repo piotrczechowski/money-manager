@@ -1,6 +1,7 @@
 package pl.sda.moneymanager.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.sda.moneymanager.dto.GithubRepoDto;
@@ -16,10 +17,15 @@ public class GithubService {
     public static final String REPO_USER = "user";
     private static final String myReposUrl = String.format("https://api.github.com/users/{%s}/repos",
         REPO_USER);
-    private final RestTemplate restTemplate;
 
-    public GithubService(final RestTemplate restTemplate) {
+    private final RestTemplate restTemplate;
+    private final String API_KEY;
+
+    public GithubService(final RestTemplate restTemplate, @Value("${security.key:#null}") String apiKey) {
         this.restTemplate = restTemplate;
+        API_KEY = apiKey;
+
+        log.debug("provided key: [{}]", apiKey);
     }
 
     public List<GithubRepoDto> allUserRepos() {
