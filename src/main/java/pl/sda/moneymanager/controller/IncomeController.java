@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.sda.moneymanager.service.IncomeService;
 
@@ -25,5 +26,15 @@ public class IncomeController {
         model.addAttribute(ALL_INCOMES, incomeService.readAllIncomes());
 
         return "incomes/all-incomes";
+    }
+
+    // /delete/1
+    // /delete/2
+    // /delete/id
+    @GetMapping("/delete/{id}")
+    public String deleteIncomeById(@PathVariable("id") Long incomeId) {
+        log.info("deleting income by id: [{}]", incomeId);
+        incomeService.deleteIncomeById(incomeId);
+        return "redirect:/incomes";
     }
 }

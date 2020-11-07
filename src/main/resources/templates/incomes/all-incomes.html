@@ -7,6 +7,7 @@
 <body>
 <table>
     <thead>
+    <h2>All incomes</h2>
     <tr>
         <td>ID</td>
         <td>Income value in cents</td>
@@ -15,6 +16,8 @@
         <td>Person name</td>
         <td>Person surname</td>
         <td>Source name</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +29,8 @@
         <td th:text="${income.person.name}">Maniek</td>
         <td th:text="${income.person.surname}">P.</td>
         <td th:text="${income.incomeSource.sourceName}">SDA</td>
+        <td><a href="#" >Edit income</a></td>
+        <td><a href="#" th:href="@{'/incomes/delete/' + ${income.id}}">Delete income</a></td>
     </tr>
     </tbody>
 </table>
