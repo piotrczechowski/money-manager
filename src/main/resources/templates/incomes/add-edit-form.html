@@ -12,6 +12,8 @@
         <h2><span th:text="${operation}">Add</span> income</h2>
         <form action="#" th:action="@{/incomes/save}" method="post" th:object="${income}">
             <div class="form-group">
+                <input type="hiden" th:field="*{id}">
+                <input type="hiden" th:field="*{creationTimestamp}">
                 <label for="incomeValueInCent">Income value: <input class="form-control" type="text"
                                                                     id="incomeValueInCent"
                                                                     th:field="*{incomeValueInCent}"
