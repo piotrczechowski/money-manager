@@ -1,11 +1,8 @@
 package pl.sda.moneymanager.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -15,12 +12,14 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Builder
 @Entity
+@ToString(callSuper = true)
 public class Income extends BaseEntity {
     private long incomeValueInCent;
 
-    @ManyToOne
+    // FIXME   - very ugly:)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Person person;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private IncomeSource incomeSource;
 }
