@@ -75,13 +75,5 @@ public class IncomeController {
         return "incomes/add-edit-form";
     }
 
-    @ExceptionHandler(Exception.class)
-    public ModelAndView errorPage(Exception exc) {
-        log.warn("exception occurred", exc);
 
-        ModelAndView result = new ModelAndView("error-page");
-        result.addObject(ERROR_DESC, exc.getMessage());
-
-        return result;
-    }
 }
